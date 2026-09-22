@@ -1,0 +1,11 @@
+# Base model hyperparameters — "Attention Is All You Need" base model defaults
+# (Vaswani et al., 2017, Table 3)
+
+d_model: 512          # Dimensionality of the model embeddings
+num_heads: 8          # Number of attention heads
+num_layers: 6         # Number of encoder and decoder layers
+d_ff: 2048            # Inner dimensionality of the feed-forward sublayer
+dropout: 0.1          # Dropout probability applied throughout the model
+batch_size: 32        # Training batch size (in sentences)
+learning_rate: 1.0    # Base learning rate (scaled by warm-up schedule)
+warmup_steps: 4000    # Number of warm-up steps for the learning-rate schedule
