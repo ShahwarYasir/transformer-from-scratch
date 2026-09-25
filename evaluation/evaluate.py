@@ -88,7 +88,9 @@ def main():
     _, _, test_loader, tokenizer = get_dataloaders(
         batch_size=cfg["batch_size"], vocab_size=cfg["vocab_size"], max_len=cfg["max_len"],
     )
+    _, _, test_split = load_multi30k()
 
+    model = load_model_from_checkpoint(args.checkpoint, cfg, tokenizer.get_vocab_size(), device)
     model = load_model_from_checkpoint(args.checkpoint, cfg, tokenizer.get_vocab_size(), device)
 
     bleu, hyps, refs = evaluate_bleu(
