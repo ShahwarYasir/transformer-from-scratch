@@ -50,7 +50,9 @@ def translate_sentence(model, tokenizer, src_text, device, max_len=128, beam_siz
         out_ids = greedy_decode(model, src, bos_id, eos_id, pad_id, max_len, device=device)
 
     out_ids = [i for i in out_ids if i != eos_id]  # drop eos before detokenizing
-    return tokenizer.decode(out_ids)
+    text = tokenizer.decode(out_ids)
+    text = text.replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
+    return text
 
 
 def evaluate_bleu(model, tokenizer, test_split, device, max_len=128, beam_size=4, use_beam=True, limit=None):
