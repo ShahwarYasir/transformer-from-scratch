@@ -69,7 +69,7 @@ def save_checkpoint(model, optimizer, epoch, val_loss, checkpoint_dir):
     return path
 
 
-def train(config_path="base.yaml"):
+def train(config_path="configs/base.yaml"):
     cfg = load_config(config_path)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"device: {device}")
