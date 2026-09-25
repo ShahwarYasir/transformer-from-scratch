@@ -1,11 +1,23 @@
-# Base model hyperparameters — "Attention Is All You Need" base model defaults
-# (Vaswani et al., 2017, Table 3)
+# Transformer config for this reimplementation.
+#
+# Architecture (model/*.py) is a faithful implementation of "Attention Is All
+# You Need" Section 3. Hyperparameters below are scaled down from the paper's
+# base model to match Multi30k (~29K sentence pairs) and single-GPU training,
+# instead of the paper's WMT 2014 (~4.5M pairs) on 8 GPUs. Paper's original
+# base-model values are shown as comments for reference.
 
-d_model: 512          # Dimensionality of the model embeddings
-num_heads: 8          # Number of attention heads
-num_layers: 6         # Number of encoder and decoder layers
-d_ff: 2048            # Inner dimensionality of the feed-forward sublayer
-dropout: 0.1          # Dropout probability applied throughout the model
-batch_size: 32        # Training batch size (in sentences)
-learning_rate: 1.0    # Base learning rate (scaled by warm-up schedule)
-warmup_steps: 4000    # Number of warm-up steps for the learning-rate schedule
+d_model: 256       # paper base: 512
+num_heads: 8        # paper base: 8 (unchanged)
+num_layers: 3        # paper base: 6
+d_ff: 1024           # paper base: 2048
+dropout: 0.1          # paper base: 0.1 (unchanged)
+label_smoothing: 0.1   # paper base: 0.1 (unchanged)
+
+batch_size: 64
+warmup_steps: 1000    # paper base: 4000 (scaled down for fewer total training steps)
+max_len: 128
+vocab_size: 8000       # paper base (shared EN-DE vocab): ~37000
+
+num_epochs: 20
+pad_idx: 0
+checkpoint_dir: checkpoints
