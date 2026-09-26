@@ -19,6 +19,8 @@ Faithfully implements Section 3 of the paper:
 
 ![encoder-decoder diagram](docs/architecture.png)
 
+*Original architecture diagram: Figure 1 in [Vaswani et al., 2017](https://arxiv.org/abs/1706.03762)*
+
 ## Hyperparameters: paper vs. this project
 
 The **architecture code** matches the paper exactly. The **hyperparameters**
