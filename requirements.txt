@@ -1,2 +1,6 @@
 torch
+datasets
+tokenizers
+pyyaml
 sacrebleu
+matplotlib
