@@ -1,4 +1,4 @@
-# Transformer from Scratch — "Attention Is All You Need"
+# Transformer from Scratch: "Attention Is All You Need"
 
 A from-scratch PyTorch reimplementation of the Transformer architecture from
 Vaswani et al., 2017 ("Attention Is All You Need"), trained on Multi30k
